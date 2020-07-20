@@ -2,16 +2,22 @@
 
 const fs = require('fs');
 
-const dir = document.querySelector('#input').value;
+let dir = document.getElementById('inputik');
 
 
 
-const pathe = "C:\\Users\\christian\\Downloads";
-let pathee = pathe.replace(/\\/g, '/')
+// string.raw to iclude the backslahes in the string
+// let pathe = String.raw`${}`;
+
+// let pathee = pathe.replace(/\\/g, '/')
 
 function seg() {
+   console.log(dir.value);
 
-   const files = fs.readdirSync(pathee)
+   // string.raw to iclude the backslahes in the string
+   let pathe = String.raw`${dir.value}`;
+
+   const files = fs.readdirSync(pathe)
 
    for (file of files) {
       console.log(file)
