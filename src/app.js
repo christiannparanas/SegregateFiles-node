@@ -1,13 +1,14 @@
 
-
 const fs = require('fs');
+const moveFile = require('move-file');
 
+
+// input dir
 let dir = document.getElementById('inputik');
 
+// dir content
+let items = document.querySelector('.items')
 
-
-// string.raw to iclude the backslahes in the string
-// let pathe = String.raw`${}`;
 
 // let pathee = pathe.replace(/\\/g, '/')
 
@@ -21,5 +22,6 @@ function seg() {
 
    for (file of files) {
       console.log(file)
+      items.innerHTML += `<li>${file}</li>`
    }
 }

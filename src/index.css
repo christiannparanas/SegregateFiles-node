@@ -2,7 +2,6 @@
 * {
   padding: 0;
   margin: 0;
-  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -38,4 +37,5 @@ button {
   background-color: darkslategrey;
   color: #fff;
   outline: 0;
+  margin-bottom: 20px;
 }
