@@ -9,8 +9,8 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 600, // 340
-    height: 500, //210
+    width: 500, // 340
+    height: 250, //210
     resizable: false,
     webPreferences: {
       nodeIntegration: true
@@ -20,13 +20,13 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.setBackgroundColor('#ffffff');
 };
 
-// Menu.setApplicationMenu(false)
+Menu.setApplicationMenu(false)
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

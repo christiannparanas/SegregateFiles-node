@@ -3,28 +3,39 @@ const fs = require('fs');
 const path = require('path');
 const fse = require('fs-extra')
 
-
 // input dir
 let dir = document.getElementById('inputik');
 
 // dir content
 let items = document.querySelector('.items')
 
-let count = 0;
-let files;
 
-// let pathee = pathe.replace(/\\/g, '/')
+let files;
 
 function seg() {
    items.innerHTML = "";
-   console.log(dir.value);
 
    // string.raw to iclude the backslahes in the string
    let pathe = String.raw`${dir.value}`;
 
-   files = fs.readdirSync(pathe)
+   let valid = pathExist(pathe)
+
+   // catch error if dir not exists
+   try {
+      files = fs.readdirSync(pathe);
+   } catch (err) {
+      items.innerHTML = "Invalid Directory";
+      return;
+   }
+
    // call the create func
    createFolder(pathe);
+}
+
+async function pathExist (f) {
+   const exists = await fse.pathExists(f)
+ 
+  return exists;
 }
 
 function createFolder(dir) {
@@ -55,7 +66,6 @@ function moveFiles(dir, files) {
    let ext;
    for(file of files) {
       ext = path.extname(file);
-      console.log(ext)
 
       // dir of files
       let src = `${dir}/${file}`;
@@ -71,40 +81,40 @@ function moveFiles(dir, files) {
       // docus
       docuFiles.forEach(docu => {
          if(ext == docu ) {
-            example(src, `${dir}/Documents/${file}`)
+            movefiles(src, `${dir}/Documents/${file}`)
          }
       })
 
       // pic
       picFiles.forEach(pic => {
          if(ext == pic ) {
-            example(src, `${dir}/Pictures/${file}`)
+            movefiles(src, `${dir}/Pictures/${file}`)
          }
       })
 
       // programs
       if(ext == '.exe') {
-         example(src, `${dir}/Programs/${file}`)
+         movefiles(src, `${dir}/Programs/${file}`)
       }
 
       // compressed
       compressedFiles.forEach(com => {
          if(ext == com) {
-            example(src, `${dir}/Compressed/${file}`)
+            movefiles(src, `${dir}/Compressed/${file}`)
          }
       })
 
       // audio
       audioFiles.forEach(audio => {
          if(ext == audio) {
-            example(src, `${dir}/Audio/${file}`)
+            movefiles(src, `${dir}/Audio/${file}`)
          }
       })
 
       // audio
       videoFiles.forEach(video => {
          if(ext == video) {
-            example(src, `${dir}/Video/${file}`)
+            movefiles(src, `${dir}/Video/${file}`)
          }
       })
 
@@ -113,7 +123,7 @@ function moveFiles(dir, files) {
    }
 }
 
-async function example (src, dest) {
+async function movefiles(src, dest) {
    try {
      await fse.move(src, dest)
      console.log('success!')

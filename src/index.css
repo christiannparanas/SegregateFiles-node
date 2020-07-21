@@ -12,6 +12,10 @@ body {
   padding: 15px;
 }
 
+#app {
+  text-align: center;
+}
+
 .container {
   display: grid;
   place-items: center;
