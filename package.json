@@ -1,6 +1,6 @@
 {
   "name": "segregate-node",
-  "productName": "segregate-node",
+  "productName": "Segregate Files",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": "src/index.js",
@@ -9,7 +9,24 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "segregate",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/Debian.ico"
+    },
+    "nsis": {
+      "installerIcon": "src/Debian.ico",
+      "uninstallerIcon": "src/Debian.ico",
+      "uninstallDisplayName": "CPU Monitor",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "keywords": [],
   "author": {
@@ -45,6 +62,7 @@
     }
   },
   "dependencies": {
+    "array-unique": "^0.3.2",
     "electron-squirrel-startup": "^1.0.0",
     "fs-extra": "^9.0.1",
     "move-file": "^2.0.0"
@@ -55,6 +73,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.52",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.52",
     "@electron-forge/maker-zip": "^6.0.0-beta.52",
-    "electron": "9.1.0"
+    "electron": "9.1.0",
+    "electron-builder": "^22.7.0"
   }
 }
