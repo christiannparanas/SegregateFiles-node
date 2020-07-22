@@ -1,7 +1,7 @@
-# SegregateFiles
+### SegregateFiles
 > built with nodejs and electron
 
-## Project setup
+### Project setup
 ```
 npm install
 ```
