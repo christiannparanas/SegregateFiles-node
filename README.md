@@ -1,5 +1,5 @@
 ### Segregate files
-> desktop application to place your file where they belong
+> desktop application to place your files where they belong
 
 > built with nodejs and electron
 
