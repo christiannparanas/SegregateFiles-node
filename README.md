@@ -1,4 +1,4 @@
-### SegregateFiles
+### Segregate files
 > built with nodejs and electron
 
 ### Project setup
