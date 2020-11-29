@@ -1,4 +1,4 @@
-Instructions 
+Directions
 > Put the directory address of your scattered files in the input box and hit the 'segregate' button and the app will do its job.
 
 Segregate files
